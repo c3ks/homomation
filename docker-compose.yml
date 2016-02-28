@@ -1,16 +1,18 @@
 web:
   build: .
+  command: rails s -b '0.0.0.0' -p 3000
   volumes:
     - .:/myapp
   ports:
     - "3000:3000"
   links:
     - db
-  env_file:
-    - '.env.web'
+    - rabbit
+
 db:
-  image: library/postgres:9.5
-  ports:
-    - "5432:5432"
+  image: postgres
   env_file:
     - '.env.db'
+
+rabbit:
+  image: rabbitmq
