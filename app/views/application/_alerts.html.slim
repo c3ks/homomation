@@ -1,0 +1,3 @@
+- %w(danger info success warning).each do |i|
+  - if flash[i].present?
+    .alert class="alert-#{i}" = flash[i]

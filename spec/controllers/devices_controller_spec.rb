@@ -13,8 +13,9 @@ RSpec.describe DevicesController, type: :controller do
       expect(response).to render_template('index')
     end
 
-    it "loads all devices into @devices" do
-      device1, device2 = FactoryGirl.create(:device), FactoryGirl.create(:device)
+    it 'loads all devices into @devices' do
+      device1 = FactoryGirl.create(:device)
+      device2 = FactoryGirl.create(:device)
       get :index
 
       expect(assigns(:devices)).to match_array([device1, device2])

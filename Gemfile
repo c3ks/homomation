@@ -2,10 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails',                '4.2.5.1'
 
+gem 'bootstrap-sass'
 gem 'cancan',               '~> 1.6.10'
 gem 'coffee-rails',         '~> 4.1.1' # Use CoffeeScript for .coffee assets and views
 gem 'devise',               '~> 3.5.6'
 gem 'jbuilder',             '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jquery-rails'
 gem 'pg',                   '~> 0.18.4'
 gem 'sass-rails',           '~> 5.0' # Use SCSS for stylesheets
 gem 'sdoc',                 '~> 0.4.1', group: :doc

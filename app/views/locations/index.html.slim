@@ -1,0 +1,14 @@
+button = link_to t('.new_location'), new_location_path
+
+table.table
+  thead
+    tr
+      th = t('activerecord.attributes.location.name')
+      th
+
+  tbody
+    - @locations.each do |location|
+      tr
+        td = location.name
+        td
+          = link_to 'Müll', location_path(location.id), method: :delete, data: { confirmation: 'ja?' }

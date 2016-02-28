@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   root to: "home#index"
   resources :devices, only: [:index]
-  resources :locations, only: [:index]
+  resources :locations, except: [:show]
 end
