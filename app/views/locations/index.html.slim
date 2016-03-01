@@ -1,4 +1,5 @@
-= link_to fa_icon(:plus, text: t('.new_location')), new_location_path, class: 'btn btn-primary'
+.actions
+  = link_to fa_icon(:plus, text: t('.new_location')), new_location_path, class: 'btn btn-default btn-xs'
 
 table.table.table-striped
   thead
@@ -10,8 +11,10 @@ table.table.table-striped
     - @locations.each do |location|
       tr
         td = location.name
-        td
-          = link_to fa_icon(:edit), edit_location_path(location.id)
-          = link_to fa_icon(:'trash-o'), location_path(location.id), method: :delete, data: { confirmation: 'ja?' }
+        td.btns
+          .btn-group
+            = link_to fa_icon(:edit), edit_location_path(location.id), class: 'btn btn-default btn-xs'
+            = link_to fa_icon(:'trash-o'), location_path(location.id), class: 'btn btn-default btn-xs', method: :delete, data: { confirmation: 'ja?' }
 
-= link_to fa_icon(:plus, text: t('.new_location')), new_location_path, class: 'btn btn-primary'
+.actions
+  = link_to fa_icon(:plus, text: t('.new_location')), new_location_path, class: 'btn btn-default btn-xs'

@@ -1,3 +1,6 @@
 h1 = t('.new_location')
 
+.actions
+  = link_to fa_icon(:'arrow-left', text: t('actions.back')), locations_path, class: 'btn btn-default btn-xs'
+
 = render 'form', location: @location

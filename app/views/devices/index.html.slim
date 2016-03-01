@@ -1,4 +1,5 @@
-= link_to fa_icon(:plus, text: t('.new_device')), new_device_path, class: 'btn btn-primary'
+.actions
+  = link_to fa_icon(:plus, text: t('.new_device')), new_device_path, class: 'btn btn-default btn-xs'
 
 table.table.table-striped
   thead
@@ -12,9 +13,10 @@ table.table.table-striped
       tr
         td = device.name
         td = device.location.name
-        td
-          = link_to fa_icon(:edit), edit_device_path(device.id)
-          = link_to fa_icon(:'trash-o'), device_path(device.id), method: :delete, data: { confirmation: 'ja?' }
+        td.btns
+          .btn-group
+            = link_to fa_icon(:edit), edit_device_path(device.id), class: 'btn btn-default btn-xs'
+            = link_to fa_icon(:'trash-o'), device_path(device.id), class: 'btn btn-default btn-xs', method: :delete, data: { confirmation: 'ja?' }
 
-
-= link_to fa_icon(:plus, text: t('.new_device')), new_device_path, class: 'btn btn-primary'
+.actions
+  = link_to fa_icon(:plus, text: t('.new_device')), new_device_path, class: 'btn btn-default btn-xs'
