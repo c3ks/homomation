@@ -1,0 +1,20 @@
+= link_to fa_icon(:plus, text: t('.new_device')), new_device_path, class: 'btn btn-primary'
+
+table.table.table-striped
+  thead
+    tr
+      th = t('activerecord.attributes.device.name')
+      th = t('activerecord.models.location')
+      th
+
+  tbody
+    - @devices.each do |device|
+      tr
+        td = device.name
+        td = device.location.name
+        td
+          = link_to fa_icon(:edit), edit_device_path(device.id)
+          = link_to fa_icon(:'trash-o'), device_path(device.id), method: :delete, data: { confirmation: 'ja?' }
+
+
+= link_to fa_icon(:plus, text: t('.new_device')), new_device_path, class: 'btn btn-primary'
