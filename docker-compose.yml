@@ -1,6 +1,6 @@
 web:
   build: .
-  command: rails s -b 0.0.0.0
+  command: rails s -b 0.0.0.0 -e development
   volumes:
     - .:/var/app
   ports:
