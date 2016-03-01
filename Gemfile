@@ -14,7 +14,7 @@ gem 'sdoc',                 '~> 0.4.1', group: :doc
 gem 'simple_form',          '~> 3.2.1'
 gem 'slim',                 '~> 3.0.6'
 gem 'uglifier',             '>= 2.7.2' # Use Uglifier as compressor for JavaScript assets
-
+gem 'font-awesome-rails'
 
 # gem 'bcrypt',             '~> 3.1.7' # Use ActiveModel has_secure_password
 # gem 'unicorn' # Use Unicorn as the app server
