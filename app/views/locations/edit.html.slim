@@ -1,3 +1,5 @@
 h1 = t('.edit_location')
 
 = render 'form', location: @location
+
+= link_to fa_icon(:'trash-o'), location_path(@location.id), method: :delete, data: { confirmation: 'ja?' }

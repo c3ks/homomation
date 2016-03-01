@@ -1,6 +1,6 @@
-button = link_to t('.new_location'), new_location_path
+= link_to fa_icon(:plus, text: t('.new_location')), new_location_path, class: 'btn btn-primary'
 
-table.table
+table.table.table-striped
   thead
     tr
       th = t('activerecord.attributes.location.name')
@@ -11,4 +11,7 @@ table.table
       tr
         td = location.name
         td
-          = link_to 'Müll', location_path(location.id), method: :delete, data: { confirmation: 'ja?' }
+          = link_to fa_icon(:edit), edit_location_path(location.id)
+          = link_to fa_icon(:'trash-o'), location_path(location.id), method: :delete, data: { confirmation: 'ja?' }
+
+= link_to fa_icon(:plus, text: t('.new_location')), new_location_path, class: 'btn btn-primary'

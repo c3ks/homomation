@@ -51,6 +51,12 @@ RSpec.describe LocationsController, type: :controller do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
+
+    it 'renders the edit template' do
+      location = FactoryGirl.create(:location)
+      get :edit, id: location.id
+      expect(response).to render_template('edit')
+    end
   end
 
   describe 'PUT #update' do
@@ -65,12 +71,12 @@ RSpec.describe LocationsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    it 'responds successfully with an HTTP 200 status code' do
+    it 'responds successfully with an HTTP 302 status code' do
       location = FactoryGirl.create(:location, name: 'Room 1')
       get :destroy, id: location.id, _method: :delete
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
-      expect(Location.find(location.id)).to be(nil)
+      # expect(response).to be_success
+      expect(response).to have_http_status(302)
+      expect(Location.where(id: location.id).count).to be(0)
     end
   end
 end
