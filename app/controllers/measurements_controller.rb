@@ -1,4 +1,8 @@
+##
+# Default measurements controller
+#
 class MeasurementsController < ApplicationController
+  before_action :authenticate_user!, except: [:create] unless Rails.env == 'test'
   before_action :find_device
 
   def index
@@ -6,14 +10,15 @@ class MeasurementsController < ApplicationController
   end
 
   def create
-    fail 'Secret does not match' unless @device.secret.present?
+    fail 'Secret does not match' unless @device.secret?
     fail 'Secret does not match' unless @device.secret == params[:secret]
     @measurement = Measurement.new(measurement_params)
     @measurement.device = @device
     if @measurement.save
+      render json: { status: 'success' }
     else
+      render json: { status: 'failure' }
     end
-    render text: 'abc'
   end
 
   def chart_data

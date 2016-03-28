@@ -4,4 +4,4 @@ h1 = t('.edit_device')
   = link_to fa_icon(:'arrow-left', text: t('actions.back')), devices_path, class: 'btn btn-default btn-xs'
   =< link_to fa_icon(:'trash-o', text: t('actions.delete')), device_path(@device.id), class: 'btn btn-default btn-xs', method: :delete, data: { confirmation: 'ja?' }
 
-= render 'form'
+= render 'form', device: @device

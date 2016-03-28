@@ -1,0 +1,24 @@
+.actions
+  = link_to fa_icon(:plus, text: t('.new_user')), new_user_path, class: 'btn btn-default btn-xs'
+
+table.table.table-striped
+  thead
+    tr
+      th = t('activerecord.attributes.user.firstname')
+      th = t('activerecord.attributes.user.lastname')
+      th = t('activerecord.attributes.user.email')
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.firstname
+        td = user.lastname
+        td = user.email
+        td.btns
+          .btn-group
+            = link_to fa_icon(:edit), edit_user_path(user.id), class: 'btn btn-default btn-xs'
+            = link_to fa_icon(:'trash-o'), user_path(user.id), class: 'btn btn-default btn-xs', method: :delete, data: { confirmation: 'ja?' }
+
+.actions
+  = link_to fa_icon(:plus, text: t('.new_user')), new_user_path, class: 'btn btn-default btn-xs'

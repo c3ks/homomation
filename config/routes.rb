@@ -7,12 +7,13 @@ Rails.application.routes.draw do
       resources :measurements, only: [:index, :create] do
         collection do
           namespace :measurements do
-            resources :currents
-            resources :archives
+            resources :currents, only: [:index]
+            resources :archives, only: [:index]
           end
         end
       end
     end
   end
   resources :locations, except: [:show]
+  resources :users, except: [:show]
 end

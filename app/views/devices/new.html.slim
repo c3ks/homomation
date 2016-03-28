@@ -3,4 +3,4 @@ h1 = t('.new_device')
 .actions
   = link_to fa_icon(:'arrow-left', text: t('actions.back')), devices_path, class: 'btn btn-default btn-xs'
 
-= render 'form'
+= render 'form', device: @device

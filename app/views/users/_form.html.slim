@@ -1,0 +1,7 @@
+= simple_form_for user do |f|
+  = f.input :firstname
+  = f.input :lastname
+  = f.input :email, readonly: true
+
+  = f.submit class: 'btn btn-primary'
+  =< link_to t('actions.cancel'), users_path, class: 'btn btn-warning'

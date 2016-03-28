@@ -1,0 +1,7 @@
+h1 = t('.edit_user')
+
+.actions
+  = link_to fa_icon(:'arrow-left', text: t('actions.back')), users_path, class: 'btn btn-default btn-xs'
+  =< link_to fa_icon(:'trash-o', text: t('actions.delete')), user_path(@user.id), class: 'btn btn-default btn-xs', method: :delete, data: { confirmation: 'ja?' }
+
+= render 'form', user: @user

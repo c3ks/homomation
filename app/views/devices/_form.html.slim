@@ -1,11 +1,11 @@
-= simple_form_for @device do |f|
+= simple_form_for device do |f|
   = f.input :name
   = f.association :location
   = f.input :info
 
   .form-group
     label.control-label Secret
-    pre = @device.secret.presence || t('.no_secret')
+    pre = device.secret.presence || t('.no_secret')
 
   = f.submit class: 'btn btn-primary'
   =< link_to t('actions.cancel'), devices_path, class: 'btn btn-warning'

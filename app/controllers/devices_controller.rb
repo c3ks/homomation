@@ -1,4 +1,8 @@
+##
+# Default devices controller
+#
 class DevicesController < ApplicationController
+  before_action :authenticate_user! unless Rails.env == 'test'
   before_action :find_device, only: [:edit, :update, :destroy]
 
   def index

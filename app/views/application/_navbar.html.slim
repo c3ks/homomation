@@ -4,8 +4,12 @@ nav.navbar.navbar-default
       a.navbar-brand href="#" Homomation
 
     ul.nav.navbar-nav
-      li = link_to t('activerecord.models.device'), devices_path
-      li = link_to t('activerecord.models.location'), locations_path
+      - if can? :edit, Device
+        li = link_to t('activerecord.models.device'), devices_path
+      - if can? :edit, Location
+        li = link_to t('activerecord.models.location'), locations_path
+      - if can? :edit, User
+        li = link_to t('activerecord.models.user'), users_path
       - if user_signed_in?
         li = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
         li = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'
