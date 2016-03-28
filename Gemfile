@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 gem 'rails',                '4.2.5.1'
 
 gem 'bootstrap-sass'
+gem 'bunny'
 gem 'cancan',               '~> 1.6.10'
 gem 'coffee-rails',         '~> 4.1.1' # Use CoffeeScript for .coffee assets and views
+gem 'd3js-rails'
 gem 'devise',               '~> 3.5.6'
 gem 'jbuilder',             '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails'
@@ -23,6 +25,7 @@ gem 'font-awesome-rails'
 group :test do
   gem 'database_cleaner',   '~> 1.5.1'
   gem 'factory_girl_rails', '~> 4.6.0'
+  gem 'rspec-activejob'
   gem 'rspec-rails',        '~> 3.4.2'
 end
 

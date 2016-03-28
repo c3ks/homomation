@@ -8,4 +8,10 @@
 
 locations = Location.create([{ name: 'Raum 1' }, { name: 'Raum 2'} ])
 
-devices = Device.create([{ name: 'Thermometer', location: locations.first }, { name: 'Lichtsensor', location: locations.first }, { name: 'Lichtsensor', location: locations.last }])
+devices = Device.create([{ name: 'Thermometer', location: locations.first },
+                         { name: 'Lichtsensor', location: locations.first },
+                         { name: 'Lichtsensor', location: locations.last }])
+
+measurements = Measurement.create([{ device: devices.first, data: { key: :temperature, value: 24 } },
+                                   { device: devices.first, data: { key: :temperature, value: 23 } },
+                                   { device: devices.first, data: { key: :temperature, value: 25 } }])

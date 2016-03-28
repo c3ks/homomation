@@ -16,6 +16,7 @@ table.table.table-striped
         td.btns
           .btn-group
             = link_to fa_icon(:edit), edit_device_path(device.id), class: 'btn btn-default btn-xs'
+            = link_to fa_icon(:'bar-chart'), measurements_path(device.id), class: 'btn btn-default btn-xs'
             = link_to fa_icon(:'trash-o'), device_path(device.id), class: 'btn btn-default btn-xs', method: :delete, data: { confirmation: 'ja?' }
 
 .actions
