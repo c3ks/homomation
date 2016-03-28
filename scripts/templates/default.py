@@ -1,25 +1,23 @@
 #! /usr/bin/env python
-
 import httplib, urllib
 
 if __name__ == '__main__':
     # Init variables
-    host = 'localhost:3000'
+    host        = 'Your servers host'
+    device_id   = 42
+    secret      = 'Your secret'
+    data        = {}
 
     conn = httplib.HTTPConnection(host)
 
-    # Authenticate on Server
-    params = urllib.urlencode({'@number': 12524, '@type': 'issue', '@action': 'show'})
+    # Send data to server
+    params = urllib.urlencode({ 'secret': secret, 'measurement': { 'data': data } })
     headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
-    conn.request("POST", "/device/authenticate", params, headers)
+    conn.request("POST", "/devices/" str(device_id) "/measurements", params, headers)
     response = conn.getresponse()
-    print response.status, response.reason
-    data = response.read()
-    print data
-
-    #  Send Data to Server
-    conn.request("POST", "/device/data", params, headers)
-    response = conn.getresponse()
+    # print response.status, response.reason
+    # data = response.read()
+    # print data
 
     # End script
     conn.close()
